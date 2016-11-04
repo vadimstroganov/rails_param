@@ -36,12 +36,11 @@ module RailsParam
             recurse params[name], &block
           end
         end
-        params[name]
 
       rescue InvalidParameterError => exception
         exception.param ||= name
         exception.options ||= options
-        raise exception
+        exception
       end
     end
 
